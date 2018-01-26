@@ -1,12 +1,21 @@
-from flask import Flask
+from flask import Flask, flash, redirect, render_template, request, session, abort
 app = Flask(__name__)
  
-@app.route("/")
-def hello():
-    return "This is going to be bothersome"
+@app.route("/", methods=['GET'])
+def index():
+    return "ProtoSite"
+ 
+@app.route("/home", methods=['GET'])
+def home():
+  name = "Henry"
+  return render_template(
+       'test.html',name=name)
+ 
+       
  
 if __name__ == "__main__":
     app.run()
+  
     
     #Run In command prompt "python (file-path)"
     #Open http://localhost:5000/
