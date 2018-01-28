@@ -1,13 +1,26 @@
 from flask import Flask, flash, redirect, render_template, request, session, abort
+import time
 app = Flask(__name__,template_folder='C:/Users/admin/Documents/ProtoWebsite/ProtoWebsite/Template')
- 
+
+
 @app.route("/", methods=['GET'])
 def index():
-    return render_template("test.html",)
+    name= "henry"
+    question = "This is where a question will go "
+    words = question.split()
+    question_words= []
+    i = 0 
+    string = ""
+    while (i< len(words)):
+        question_words.append(words[i])
+        string = " ".join(question_words)
+        i += 1
+        time.sleep(1)
+        return render_template("test.html",name=name,TestQuestion=string)
  
+
 @app.route("/home", methods=['GET'])
 def home():
-  name = "Henry"
   return (name)
  
        
